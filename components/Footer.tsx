@@ -70,7 +70,6 @@ export default function Footer() {
             </p>
             <ul className="space-y-2.5 text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
               <li><Link href="/sources" className="hover:text-white transition-colors">Sources</Link></li>
-              <li><Link href="/sources" className="hover:text-white transition-colors">Sources</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">इस website के बारे में</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">सुधार सुझाएं</Link></li>
             </ul>

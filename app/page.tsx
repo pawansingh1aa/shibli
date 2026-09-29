@@ -7,15 +7,27 @@ import { profile, timeline, sources } from "@/lib/data/profile";
 const BASE = "https://jashwantshiblisingh.netlify.app";
 
 export const metadata: Metadata = {
-  title: "जशवंत सिंह शिब्ली सिंह — ग्राम प्रधान, सुभासपा, आज़मगढ़",
+  title: "जशवंत सिंह (Jashwant Singh) — ग्राम प्रधान, सुभासपा, आज़मगढ़",
   description:
-    "जशवंत सिंह (Jashwant Singh) उर्फ शिब्ली सिंह — आज़मगढ़ UP के 3 बार ग्राम प्रधान, जिला पंचायत सदस्य, सुभासपा प्रदेश सलाहकार। Shibli Singh Azamgarh SBSP politician.",
+    "जशवंत सिंह शिब्ली सिंह (Jashwant Singh Shibli Singh) — आज़मगढ़ UP के 3 बार ग्राम प्रधान, जिला पंचायत सदस्य, सुभासपा प्रदेश सलाहकार। Azamgarh Uttar Pradesh SBSP politician.",
   alternates: { canonical: BASE },
   openGraph: {
     title: "जशवंत सिंह (Jashwant Singh) — सुभासपा, आज़मगढ़",
-    description: "3 बार ग्राम प्रधान, जिला पंचायत सदस्य, सुभासपा प्रदेश सलाहकार — आज़मगढ़, उत्तर प्रदेश।",
+    description:
+      "जशवंत सिंह शिब्ली सिंह — 3 बार ग्राम प्रधान, जिला पंचायत सदस्य, सुभासपा प्रदेश सलाहकार, आज़मगढ़ उत्तर प्रदेश।",
     url: BASE,
-    images: [{ url: `${BASE}/profile.jpg`, width: 400, height: 500, alt: "जशवंत सिंह शिब्ली सिंह" }],
+    images: [{
+      url: `${BASE}/profile.jpg`,
+      width: 400,
+      height: 500,
+      alt: "जशवंत सिंह (शिब्ली सिंह) — आज़मगढ़",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "जशवंत सिंह (Jashwant Singh) — आज़मगढ़ UP",
+    description: "सुभासपा प्रदेश सलाहकार, 3 बार ग्राम प्रधान, आज़मगढ़।",
+    images: [`${BASE}/profile.jpg`],
   },
 };
 
@@ -30,15 +42,15 @@ export default function HomePage() {
       "Jaswant Singh",
       "Shibli Singh",
       "jashwantshiblisingh",
-      "जशवंत सिंह शिब्ली सिंह",
     ],
     jobTitle: "प्रदेश सलाहकार, सुहेलदेव भारतीय समाज पार्टी",
     url: BASE,
     image: `${BASE}/profile.jpg`,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "असवनियां",
-      addressRegion: "आज़मगढ़, उत्तर प्रदेश",
+      streetAddress: "ग्राम व पोस्ट असवनियां, थाना बरदह",
+      addressLocality: "आज़मगढ़",
+      addressRegion: "उत्तर प्रदेश",
       addressCountry: "IN",
     },
     affiliation: {
@@ -63,14 +75,15 @@ export default function HomePage() {
       />
       <Hero />
 
-      {/* SEO-friendly name mention — natural, not stuffed */}
       <section aria-labelledby="journey-heading" className="border-b border-hairline">
         <div className="container-content py-14">
           <h2 id="journey-heading" className="font-serif text-2xl text-ink">
             राजनीतिक सफर
           </h2>
+          {/* Natural keyword mention — both spellings */}
           <p className="mt-2 max-w-prose text-sm text-graphite">
-            जशवंत सिंह (Jashwant Singh), जिन्हें शिब्ली सिंह के नाम से भी जाना जाता है, के राजनीतिक जीवन की प्रमुख घटनाएं।
+            जशवंत सिंह (Jashwant Singh), जिन्हें शिब्ली सिंह (Shibli Singh) के
+            नाम से भी जाना जाता है, के राजनीतिक जीवन की प्रमुख घटनाएं।
           </p>
           <div className="mt-8">
             <Timeline events={timeline} sources={sources} />
@@ -92,9 +105,9 @@ export default function HomePage() {
           <p className="mt-2 max-w-prose text-sm text-graphite">
             इस site पर हर documented claim किसी public record से linked है।{" "}
             <Link href="/sources" className="text-maroon hover:text-maroon-dark">
-              source directory
+              पूरी source directory
             </Link>{" "}
-            पर पूरी list देखें।
+            देखें।
           </p>
           <ul className="mt-6 space-y-3 text-sm">
             {sources.map((s) => (
@@ -103,8 +116,12 @@ export default function HomePage() {
                 {s.url && (
                   <>
                     {" — "}
-                    <a href={s.url} target="_blank" rel="noopener noreferrer nofollow"
-                      className="text-maroon hover:text-maroon-dark">
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="text-maroon hover:text-maroon-dark"
+                    >
                       देखें
                     </a>
                   </>
