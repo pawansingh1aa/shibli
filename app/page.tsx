@@ -2,30 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import Timeline from "@/components/Timeline";
-import { profile, timeline, sources, siteMeta } from "@/lib/data/profile";
+import { profile, timeline, sources } from "@/lib/data/profile";
+
+const BASE = "https://jashwantshiblisingh.netlify.app";
 
 export const metadata: Metadata = {
-  title: `जशवंत सिंह उर्फ शिब्ली सिंह — ग्राम प्रधान, सुभासपा प्रदेश सलाहकार, आज़मगढ़`,
+  title: "जशवंत सिंह शिब्ली सिंह — ग्राम प्रधान, सुभासपा, आज़मगढ़",
   description:
-    "जशवंत सिंह उर्फ शिब्ली सिंह — आज़मगढ़, उत्तर प्रदेश के 3 बार ग्राम प्रधान, जिला पंचायत सदस्य और सुहेलदेव भारतीय समाज पार्टी (सुभासपा) के प्रदेश सलाहकार। Jaswant Singh Shibli Singh Azamgarh UP SBSP politician.",
-  keywords: [
-    "जशवंत सिंह", "शिब्ली सिंह", "Jaswant Singh", "Jashwant Singh", "Shibli Singh",
-    "आज़मगढ़", "Azamgarh", "ग्राम प्रधान", "Gram Pradhan", "सुभासपा", "SBSP",
-    "सुहेलदेव भारतीय समाज पार्टी", "प्रदेश सलाहकार", "उत्तर प्रदेश", "Uttar Pradesh",
-    "असवनियां", "दीदारगंज", "लालगंज", "जिला पंचायत",
-  ],
-  alternates: { canonical: "/" },
+    "जशवंत सिंह (Jashwant Singh) उर्फ शिब्ली सिंह — आज़मगढ़ UP के 3 बार ग्राम प्रधान, जिला पंचायत सदस्य, सुभासपा प्रदेश सलाहकार। Shibli Singh Azamgarh SBSP politician.",
+  alternates: { canonical: BASE },
   openGraph: {
-    title: "जशवंत सिंह (शिब्ली सिंह) — सुभासपा प्रदेश सलाहकार, आज़मगढ़ UP",
-    description:
-      "जशवंत सिंह उर्फ शिब्ली सिंह — 3 बार ग्राम प्रधान, जिला पंचायत सदस्य, सुभासपा प्रदेश सलाहकार। आज़मगढ़, उत्तर प्रदेश।",
-    url: siteMeta.baseUrl,
-    images: [{ url: `${siteMeta.baseUrl}/profile.jpg`, width: 400, height: 500, alt: "जशवंत सिंह" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "जशवंत सिंह (शिब्ली सिंह) — आज़मगढ़ UP",
-    description: "सुभासपा प्रदेश सलाहकार, 3 बार ग्राम प्रधान असवनियां, आज़मगढ़।",
+    title: "जशवंत सिंह (Jashwant Singh) — सुभासपा, आज़मगढ़",
+    description: "3 बार ग्राम प्रधान, जिला पंचायत सदस्य, सुभासपा प्रदेश सलाहकार — आज़मगढ़, उत्तर प्रदेश।",
+    url: BASE,
+    images: [{ url: `${BASE}/profile.jpg`, width: 400, height: 500, alt: "जशवंत सिंह शिब्ली सिंह" }],
   },
 };
 
@@ -33,9 +23,36 @@ export default function HomePage() {
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: profile.name,
-    alternateName: profile.alternateName,
-    url: siteMeta.baseUrl,
+    name: "जशवंत सिंह",
+    alternateName: [
+      "शिब्ली सिंह",
+      "Jashwant Singh",
+      "Jaswant Singh",
+      "Shibli Singh",
+      "jashwantshiblisingh",
+      "जशवंत सिंह शिब्ली सिंह",
+    ],
+    jobTitle: "प्रदेश सलाहकार, सुहेलदेव भारतीय समाज पार्टी",
+    url: BASE,
+    image: `${BASE}/profile.jpg`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "असवनियां",
+      addressRegion: "आज़मगढ़, उत्तर प्रदेश",
+      addressCountry: "IN",
+    },
+    affiliation: {
+      "@type": "Organization",
+      name: "सुहेलदेव भारतीय समाज पार्टी",
+      alternateName: "सुभासपा / SBSP",
+      url: "https://www.sbsp.in/",
+    },
+    sameAs: [
+      "https://www.facebook.com/share/1CwCsCf3nK/",
+      "https://www.instagram.com/shiblisingh2055",
+    ],
+    description:
+      "जशवंत सिंह उर्फ शिब्ली सिंह (Jashwant Singh alias Shibli Singh) उत्तर प्रदेश के आज़मगढ़ ज़िले के वरिष्ठ राजनीतिक कार्यकर्ता हैं। वे असवनियां ग्राम पंचायत से 3 बार ग्राम प्रधान और सरायमोहन जिला पंचायत क्षेत्र से जिला पंचायत सदस्य रह चुके हैं। वर्तमान में वे सुभासपा के प्रदेश सलाहकार हैं।",
   };
 
   return (
@@ -46,11 +63,15 @@ export default function HomePage() {
       />
       <Hero />
 
+      {/* SEO-friendly name mention — natural, not stuffed */}
       <section aria-labelledby="journey-heading" className="border-b border-hairline">
         <div className="container-content py-14">
           <h2 id="journey-heading" className="font-serif text-2xl text-ink">
             राजनीतिक सफर
           </h2>
+          <p className="mt-2 max-w-prose text-sm text-graphite">
+            जशवंत सिंह (Jashwant Singh), जिन्हें शिब्ली सिंह के नाम से भी जाना जाता है, के राजनीतिक जीवन की प्रमुख घटनाएं।
+          </p>
           <div className="mt-8">
             <Timeline events={timeline} sources={sources} />
           </div>
@@ -63,20 +84,17 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
       <section aria-labelledby="sources-heading">
         <div className="container-content py-14">
           <h2 id="sources-heading" className="font-serif text-2xl text-ink">
             Sources
           </h2>
           <p className="mt-2 max-w-prose text-sm text-graphite">
-            इस site पर हर documented claim किसी public record से linked है। पूरी
-            list claims, publications और dates के साथ{" "}
+            इस site पर हर documented claim किसी public record से linked है।{" "}
             <Link href="/sources" className="text-maroon hover:text-maroon-dark">
               source directory
             </Link>{" "}
-            पर देखें।
+            पर पूरी list देखें।
           </p>
           <ul className="mt-6 space-y-3 text-sm">
             {sources.map((s) => (
@@ -85,12 +103,8 @@ export default function HomePage() {
                 {s.url && (
                   <>
                     {" — "}
-                    <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      className="text-maroon hover:text-maroon-dark"
-                    >
+                    <a href={s.url} target="_blank" rel="noopener noreferrer nofollow"
+                      className="text-maroon hover:text-maroon-dark">
                       देखें
                     </a>
                   </>

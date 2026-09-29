@@ -1,12 +1,9 @@
 import type { MetadataRoute } from "next";
-import { siteMeta } from "@/lib/data/profile";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: `${siteMeta.baseUrl}/sitemap.xml`,
+    rules: [{ userAgent: "*", allow: "/" }],
+    sitemap: "https://jashwantshiblisingh.netlify.app/sitemap.xml",
+    host: "https://jashwantshiblisingh.netlify.app",
   };
 }

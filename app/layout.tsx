@@ -22,21 +22,33 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.baseUrl),
   title: {
-    default: siteMeta.siteName,
-    template: `%s | ${profile.name}`,
+    default: "जशवंत सिंह (Jashwant Singh) — आज़मगढ़, उत्तर प्रदेश",
+    template: `%s | जशवंत सिंह शिब्ली सिंह`,
   },
   description: siteMeta.description,
-  robots: {
-    index: true,
-    follow: true,
-  },
+  keywords: [
+    "जशवंत सिंह", "शिब्ली सिंह", "Jashwant Singh", "Jaswant Singh",
+    "Shibli Singh", "jashwantshiblisingh", "आज़मगढ़", "Azamgarh",
+    "सुभासपा", "SBSP", "ग्राम प्रधान", "उत्तर प्रदेश",
+  ],
+  robots: { index: true, follow: true },
   openGraph: {
     siteName: siteMeta.siteName,
     type: "website",
-    locale: "en_IN",
+    locale: "hi_IN",
+    images: [{
+      url: `${siteMeta.baseUrl}/profile.jpg`,
+      width: 400,
+      height: 500,
+      alt: "जशवंत सिंह (शिब्ली सिंह) — आज़मगढ़",
+    }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
+    images: [`${siteMeta.baseUrl}/profile.jpg`],
+  },
+  verification: {
+    google: "YAHAN_CODE_DAALNA",
   },
 };
 
@@ -46,16 +58,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${inter.variable}`} translate="yes">
-      <head />
+    <html lang="hi" className={`${newsreader.variable} ${inter.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
         >
-          Skip to main content
+          मुख्य सामग्री पर जाएं
         </a>
-        <Navbar />        <main id="main-content" className="flex-1">
+        <Navbar />
+        <main id="main-content" className="flex-1">
           {children}
         </main>
         <Footer />

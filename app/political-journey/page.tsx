@@ -3,10 +3,18 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Timeline from "@/components/Timeline";
 import { profile, timeline, sources, siteMeta } from "@/lib/data/profile";
 
+const BASE = "https://jashwantshiblisingh.netlify.app";
+
 export const metadata: Metadata = {
-  title: "Political Journey",
-  description: `A chronological, source-backed timeline of documented political events associated with ${profile.name} (${profile.alternateName}).`,
-  alternates: { canonical: "/political-journey" },
+  title: "राजनीतिक सफर — जशवंत सिंह शिब्ली सिंह, आज़मगढ़",
+  description:
+    "जशवंत सिंह (Jashwant Singh) उर्फ शिब्ली सिंह का राजनीतिक सफर — ग्राम प्रधान से सुभासपा प्रदेश सलाहकार तक, आज़मगढ़ उत्तर प्रदेश।",
+  alternates: { canonical: `${BASE}/political-journey` },
+  openGraph: {
+    title: "राजनीतिक सफर — जशवंत सिंह (Jashwant Singh)",
+    url: `${BASE}/political-journey`,
+    images: [{ url: `${BASE}/profile.jpg`, width: 400, height: 500, alt: "जशवंत सिंह" }],
+  },
 };
 
 export default function PoliticalJourneyPage() {

@@ -2,10 +2,18 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { biographySections, profile, siteMeta } from "@/lib/data/profile";
 
+const BASE = "https://jashwantshiblisingh.netlify.app";
+
 export const metadata: Metadata = {
-  title: "जीवनी",
-  description: `${profile.name} (${profile.alternateName}) की जीवनी — आज़मगढ़, उत्तर प्रदेश।`,
-  alternates: { canonical: "/biography" },
+  title: "जीवनी — जशवंत सिंह शिब्ली सिंह, आज़मगढ़",
+  description:
+    "जशवंत सिंह (Jashwant Singh) उर्फ शिब्ली सिंह की जीवनी — ग्राम प्रधान, जिला पंचायत सदस्य, किसान, सुभासपा प्रदेश सलाहकार, आज़मगढ़ उत्तर प्रदेश।",
+  alternates: { canonical: `${BASE}/biography` },
+  openGraph: {
+    title: "जीवनी — जशवंत सिंह (Jashwant Singh) शिब्ली सिंह",
+    url: `${BASE}/biography`,
+    images: [{ url: `${BASE}/profile.jpg`, width: 400, height: 500, alt: "जशवंत सिंह" }],
+  },
 };
 
 export default function BiographyPage() {

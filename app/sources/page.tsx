@@ -3,10 +3,17 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import SourceCard from "@/components/SourceCard";
 import { profile, sources } from "@/lib/data/profile";
 
+const BASE = "https://jashwantshiblisingh.netlify.app";
+
 export const metadata: Metadata = {
-  title: "Sources",
-  description: `The full source directory backing every factual claim about ${profile.name} (${profile.alternateName}) made on this site.`,
-  alternates: { canonical: "/sources" },
+  title: "Sources — जशवंत सिंह शिब्ली सिंह",
+  description:
+    "जशवंत सिंह (Jashwant Singh) शिब्ली सिंह से जुड़े सभी facts के public sources — Election Commission, ADR/MyNeta aur अन्य।",
+  alternates: { canonical: `${BASE}/sources` },
+  openGraph: {
+    title: "Sources — जशवंत सिंह (Jashwant Singh)",
+    url: `${BASE}/sources`,
+  },
 };
 
 export default function SourcesPage() {

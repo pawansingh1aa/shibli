@@ -2,11 +2,18 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CorrectionForm from "@/components/CorrectionForm";
 
+const BASE = "https://jashwantshiblisingh.netlify.app";
+
 export const metadata: Metadata = {
-  title: "संपर्क / सुधार सुझाएं",
+  title: "संपर्क — जशवंत सिंह शिब्ली सिंह",
   description:
-    "जशवंत सिंह उर्फ शिब्ली सिंह से संपर्क करें। Facebook और Instagram पर follow करें।",
-  alternates: { canonical: "/contact" },
+    "जशवंत सिंह (Jashwant Singh) उर्फ शिब्ली सिंह से Facebook और Instagram पर जुड़ें या सुधार सुझाएं।",
+  alternates: { canonical: `${BASE}/contact` },
+  openGraph: {
+    title: "संपर्क — जशवंत सिंह (Jashwant Singh) शिब्ली सिंह",
+    url: `${BASE}/contact`,
+    images: [{ url: `${BASE}/profile.jpg`, width: 400, height: 500, alt: "जशवंत सिंह" }],
+  },
 };
 
 export default function ContactPage() {

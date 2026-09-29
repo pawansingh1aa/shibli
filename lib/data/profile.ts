@@ -155,8 +155,8 @@ export const timeline: TimelineEvent[] = [
   },
   {
     id: "tl-zila-panchayat",
-    date: "Not publicly verified",
-    title: "जिला पंचायत — सरायमोहन, आज़मगढ़",
+    date: "तिथि उपलब्ध नहीं",
+    title: "जिला पंचायत सदस्य — सरायमोहन, आज़मगढ़",
     description:
       "जशवंत सिंह उर्फ शिब्ली सिंह का सरायमोहन, आज़मगढ़ से जिला पंचायत से जुड़ाव रहा है।",
     status: VERIFICATION_STATUS.VERIFIED,
@@ -304,9 +304,9 @@ export const biographySections = [
 
 export const siteMeta = {
   siteName: "जशवंत सिंह — Public Information Profile",
-  baseUrl: "https://example.com",
+  baseUrl: "https://jashwantshiblisingh.netlify.app",
   description:
-    "जशवंत सिंह उर्फ शिब्ली सिंह का public information profile — आज़मगढ़, उत्तर प्रदेश के तीन बार ग्राम प्रधान और सुभासपा प्रदेश सलाहकार।",
+    "जशवंत सिंह उर्फ शिब्ली सिंह — आज़मगढ़, उत्तर प्रदेश के 3 बार ग्राम प्रधान, जिला पंचायत सदस्य और सुभासपा प्रदेश सलाहकार। Jashwant Singh Shibli Singh Azamgarh UP politician.",
 };
 
 // ---------------------------------------------------------------------------

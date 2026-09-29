@@ -3,10 +3,18 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import ElectionTable from "@/components/ElectionTable";
 import { profile, elections, sources, siteMeta } from "@/lib/data/profile";
 
+const BASE = "https://jashwantshiblisingh.netlify.app";
+
 export const metadata: Metadata = {
-  title: "Election Record",
-  description: `A clean, source-linked election record table for ${profile.name} (${profile.alternateName}). No estimated or unverified vote counts are shown.`,
-  alternates: { canonical: "/elections" },
+  title: "चुनाव रिकॉर्ड — जशवंत सिंह शिब्ली सिंह, आज़मगढ़",
+  description:
+    "जशवंत सिंह (Jashwant Singh) उर्फ शिब्ली सिंह का चुनाव रिकॉर्ड — 2017 दीदारगंज विधानसभा (महाक्रांति दल) और 2019 आज़मगढ़ लोकसभा (सुभासपा)।",
+  alternates: { canonical: `${BASE}/elections` },
+  openGraph: {
+    title: "चुनाव रिकॉर्ड — जशवंत सिंह (Jashwant Singh)",
+    url: `${BASE}/elections`,
+    images: [{ url: `${BASE}/profile.jpg`, width: 400, height: 500, alt: "जशवंत सिंह" }],
+  },
 };
 
 export default function ElectionsPage() {
